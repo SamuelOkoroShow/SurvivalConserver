@@ -3,30 +3,26 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-
+var signIn = require('./app/components/signIn');
 var React = require('react-native');
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
+NavigatorIOS
 } = React;
 
 var Smoothies = React.createClass({
   render: function() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+<NavigatorIOS
+      initialRoute={{
+        component: signIn,
+        title: 'My View Title',
+        passProps: { myProp: 'foo' },
+      }}
+    />
     );
   }
 });
