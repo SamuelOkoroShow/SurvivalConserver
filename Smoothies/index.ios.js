@@ -3,7 +3,7 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-var signIn = require('./app/components/signIn');
+var walk = require('./app/components/walk');
 var React = require('react-native');
 var {
   AppRegistry,
@@ -16,13 +16,16 @@ NavigatorIOS
 var Smoothies = React.createClass({
   render: function() {
     return (
-<NavigatorIOS
-      initialRoute={{
-        component: signIn,
-        title: 'My View Title',
-        passProps: { myProp: 'foo' },
+<NavigatorIOS style={styles.container}
+        navigationBarHidden={true}
+       initialRoute={{
+        component: walk,
+        title: 'Smoothies',
+       
       }}
+       
     />
+
     );
   }
 });
@@ -30,20 +33,15 @@ var Smoothies = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    flex:1,
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
-});
+  }});
 
 AppRegistry.registerComponent('Smoothies', () => Smoothies);
